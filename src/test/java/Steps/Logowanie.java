@@ -29,20 +29,20 @@ public class Logowanie {
         System.out.println("Krok 3 - Uzytkownik wpisuje poprawny login ");
         driver.findElement(By.id("username")).sendKeys("tomsmith");
     }
-    @When("Uzytkownik wpisuje poprawne haslo")
+    @When("Uzytkownik wpisuje niepoprawne haslo")
     public void uzytkownik_wpisuje_poprawne_haslo() {
-        System.out.println("Uzytkownik wpisuje poprawne haslo");
-        driver.findElement(By.name("password")).sendKeys("SuperSecretPassword!");
+        System.out.println("Uzytkownik wpisuje niepoprawne haslo");
+        driver.findElement(By.name("password")).sendKeys("SuperSecretPassword");
     }
     @When("Uzytkownik klika przycisk Login")
     public void uzytkownik_klika_przycisk_login() {
         System.out.println("Krok 5- Uzytkownik klika przycisk login");
         driver.findElement((By.tagName("button"))).click();
     }
-    @Then("Uzytkownik zostaje poprawnie zalogowany do aplikacji")
-    public void uzytkownik_zostaje_poprawnie_zalogowany_do_aplikacji() {
-        System.out.println("Krok 6- Uzytkownik zostaje poprawnie zalogowany do aplikacji");
-        Assert.assertEquals("https://the-internet.herokuapp.com/secure", driver.getCurrentUrl());
+    @Then("Uzytkownik nie zostaje poprawnie zalogowany do aplikacji")
+    public void uzytkownik_nie_zostaje_poprawnie_zalogowany_do_aplikacji() {
+        System.out.println("Krok 6- Uzytkownik nie zostaje poprawnie zalogowany do aplikacji");
+        Assert.assertEquals("https://the-internet.herokuapp.com/login", driver.getCurrentUrl());
     driver.close();
     }
 }
